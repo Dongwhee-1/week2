@@ -29,7 +29,7 @@
         .container {
             max-width: 800px;
             margin: 20px auto;
-            padding: 0 20px;
+            padding: 20px;
             text-align: center;
         }
         p {
@@ -66,24 +66,92 @@
             margin-bottom: 20px;
             filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.5)); /* Drop shadow for a 3D effect */
         }
+        /* Sidebar styles */
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+        .sidenav a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidenav a:hover {
+            color: #f1f1f1;
+        }
+
+        .sidenav .closebtn {
+            position: absolute;
+            top: 14px;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+        @media screen and (max-height: 450px) {
+            .sidenav {padding-top: 15px;}
+            .sidenav a {font-size: 18px;}
+        }
+
+        .menu-btn {
+            font-size: 36px;
+            cursor: pointer;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 2;
+            color: #ffffff;
+        }
     </style>
 </head>
 <body>
     <header>
         <h1>Welcome to Nyan Cat Madness!!</h1>
+        <span class="menu-btn" onclick="openNav()">&#9776;</span>
     </header>
+    <!-- Sidebar -->
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+    </div>
     <div class="container">
         <img src="https://dl.openseauserdata.com/cache/originImage/files/7d5d665f92c09858439458678bc879a4.gif" alt="Nyan Cat" class="nyan-cat">
-        <p>
-            Get ready to embark on an epic adventure with Nyan Cat! Nyan Cat Madness is a thrilling game where you'll navigate through colorful obstacles, collect power-ups, and race against the clock to reach the highest score.
-        </p>
-        <p>
-            Join Nyan Cat as it dashes through the skies, leaving a trail of rainbows behind. With vibrant graphics, catchy music, and addictive gameplay, Nyan Cat Madness guarantees endless hours of entertainment for players of all ages.
-        </p>
-        <p>
-            Are you ready to experience the madness? Click the button below to start playing now!
-        </p>
-        <a href="https://youtu.be/jIQ6UV2onyI?si=RJ_z6h6cjeqgzAbZ" class="cta-button">Play Now</a>
+        <div style="border: 2px solid #ffffff; padding: 20px; border-radius: 10px;">
+            <p>
+                Get ready to embark on an epic adventure with Nyan Cat! Nyan Cat Madness is a thrilling game where you'll navigate through colorful obstacles, collect power-ups, and race against the clock to reach the highest score.
+            </p>
+            <p>
+                Join Nyan Cat as it dashes through the skies, leaving a trail of rainbows behind. With vibrant graphics, catchy music, and addictive gameplay, Nyan Cat Madness guarantees endless hours of entertainment for players of all ages.
+            </p>
+            <p>
+                Are you ready to experience the madness? Click the button below to start playing now!
+            </p>
+            <a href="https://youtu.be/jIQ6UV2onyI?si=RJ_z6h6cjeqgzAbZ" class="cta-button">Play Now</a>
+        </div>
     </div>
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
 </body>
 </html>
